@@ -3,7 +3,7 @@ import Tickets from '../Tickets/Tickets';
 import './Home.css'
 const Home = () => {
     return (
-        <div id='homeBg'>
+        <div id='home-image'>
            <Tickets></Tickets>
         </div>
     );

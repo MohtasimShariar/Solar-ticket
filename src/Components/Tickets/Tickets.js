@@ -5,7 +5,7 @@ import Cards from '../Cards/Cards';
 
 const Tickets = () => {
 
-    const [tickets,setTickets] =useState(ticketsData)
+    const [tickets] =useState(ticketsData)
 
     return (
     <div className=" p-5">

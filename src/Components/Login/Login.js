@@ -47,13 +47,13 @@ const Login = () => {
     if (e.target.name === 'email') {
       isFieldValid = /\S+@\S+\.\S+/.test(e.target.value);
       if(isFieldValid === false){
-        alert('please enter valid eamil')
+        alert('please enter valid email')
       }
     }
     if (e.target.name === 'password') {
-      isFieldValid = e.target.value.length > 6 && /\d{1}/.test(e.target.value);
+      isFieldValid = e.target.value.length > 8 && /\d{1}/.test(e.target.value);
       if(isFieldValid === false){
-        alert('password must contain 6 leatters and numbers')
+        alert('At least 8 charter or numbers')
       }
     }
     if (isFieldValid) {
@@ -152,12 +152,12 @@ const Login = () => {
       </p>
       <Form>
         <Form.Group controlId="formBasicEmail">
-          <Form.Label>Name</Form.Label>
+          <Form.Label>Email </Form.Label>
           {newUser && <Form.Control name='name' type="text" placeholder="Enter name" required />}
-          <Form.Label>Email address</Form.Label>
+          <Form.Label> Address</Form.Label>
           <Form.Control name='email' onBlur={handleBlur} type="email" placeholder="Enter email" required />
           <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
+            
     </Form.Text>
         </Form.Group>
 
@@ -168,13 +168,13 @@ const Login = () => {
         <Form.Group controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Remember me" />
         </Form.Group>
-        <Button onClick={handleSubmit} variant="primary" type="submit">
+        <Button onClick={handleSubmit} variant="success" type="submit">
           {newUser ? 'Sign up' : 'log in'}
         </Button>
         <div>
           {!newUser ?
-            <p >Dont have an account? <a style={{ color: 'blue' }} onClick={() => setNewUser(!newUser)}>Sign up</a> </p>
-            : <p>already have an account? <a style={{ color: 'blue' }} onClick={() => setNewUser(!newUser)}>Sign in</a> </p>
+            <p >Don't have an account? <a style={{ color: 'green' }} onClick={() => setNewUser(!newUser)}>Sign up</a> </p>
+            : <p>Already have an account? <a style={{ color: 'green' }} onClick={() => setNewUser(!newUser)}>Sign in</a> </p>
           }
         </div>
       </Form>
@@ -182,10 +182,9 @@ const Login = () => {
       <Button onClick={handleFacebook} variant="primary" size="lg" block>
         Continue with Facebook
       </Button>
-      <Button onClick={handleGoogle} variant="secondary" size="lg" block>
+      <Button onClick={handleGoogle} variant="danger" size="lg" block>
         Continue with Google
       </Button>
-      <p className='text-center text-danger'>there is some bug in email sigin. please use google or facebook</p>
     </div>
   );
 };

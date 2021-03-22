@@ -15,6 +15,9 @@ import PrivetRout from '../privetAuth/PrivetRout';
 import Book from '../Book/Book';
 import Login from '../Login/Login';
 import Search from '../Search/Search';
+import contact from '../Others/contact';
+
+
 export const UserContext = createContext();
 
 const Header = () => {
@@ -25,16 +28,17 @@ const Header = () => {
       <Router >
         <div>
           <Navbar collapseOnSelect expand="lg" bg="transparent" variant="light">
-            <Link to="/home"><Navbar.Brand href="#home" id='logoimg'><img src={logo} alt=""/></Navbar.Brand></Link>
-            <Link to="/home"><Navbar.Brand href="#home">TikTak Tickets</Navbar.Brand></Link>
+            <Link to="/home"><Navbar.Brand href="#home" id='logo'><img src={logo} alt=""/></Navbar.Brand></Link>
+            <Link to="/home"><Navbar.Brand href="#home">Solar ticket</Navbar.Brand></Link>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="ml-auto">
                 <Link to='/home'><Nav.Link href="#home">Home</Nav.Link></Link>
                 <Link to='/description'><Nav.Link href="#home">Description</Nav.Link></Link>
                 <Link to='/blog'><Nav.Link href="#features">Blog</Nav.Link></Link>
+                <Link to='/contact'><Nav.Link href="#features">contact</Nav.Link></Link>
                 {
-                  loggedInUser.name ? <Link to='/login'><Nav.Link href="#features"> {loggedInUser.name}</Nav.Link></Link> : <Link to="/login"><Button variant="warning">Login</Button></Link>
+                  loggedInUser.name ? <Link to='/login'><Nav.Link href="#features"> {loggedInUser.name}</Nav.Link></Link> : <Link to="/login"><Button variant="success">Login</Button></Link>
                 }
               </Nav>
             </Navbar.Collapse>
@@ -48,6 +52,9 @@ const Header = () => {
             </Route>
             <Route path="/blog">
               <Blog />
+            </Route>
+            <Route path="/contact">
+                <contact />
             </Route>
             <Route path="/login">
               <Login />
